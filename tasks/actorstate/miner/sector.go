@@ -37,16 +37,16 @@ func (SectorInfoExtractor) Extract(ctx context.Context, a actorstate.ActorInfo, 
 		}
 	} else {
 		// If the miner has previous state compute the list of sectors added in its new state.
-		sectorChanges, err := node.DiffSectors(ctx, a.Address, a.Current, a.Executed, ec.PrevState, ec.CurrState)
-		if err != nil {
-			return nil, err
-		}
-		for i := range sectorChanges.Added {
-			sectors = append(sectors, &sectorChanges.Added[i])
-		}
-		for i := range sectorChanges.Extended {
-			sectors = append(sectors, &sectorChanges.Extended[i].To)
-		}
+		// sectorChanges, err := node.DiffSectors(ctx, a.Address, a.Current, a.Executed, ec.PrevState, ec.CurrState)
+		//if err != nil {
+		//	return nil, err
+		//}
+		//for i := range sectorChanges.Added {
+		//	sectors = append(sectors, &sectorChanges.Added[i])
+		//}
+		//for i := range sectorChanges.Extended {
+		//	sectors = append(sectors, &sectorChanges.Extended[i].To)
+		//}
 	}
 
 	sectorModel := make(minermodel.MinerSectorInfoV1_6List, len(sectors))

@@ -38,6 +38,7 @@ type GasOutputs struct {
 	Refund             string   `pg:"type:numeric,notnull"`
 	GasRefund          int64    `pg:",use_zero,notnull"`
 	GasBurned          int64    `pg:",use_zero,notnull"`
+	ExecutedBlock      string   `pg:",pk,notnull"`
 }
 
 type GasOutputsV0 struct {
@@ -65,6 +66,7 @@ type GasOutputsV0 struct {
 	Refund             string   `pg:",notnull"`
 	GasRefund          int64    `pg:",use_zero,notnull"`
 	GasBurned          int64    `pg:",use_zero,notnull"`
+	ExecutedBlock      string   `pg:",pk,notnull"`
 }
 
 func (g *GasOutputs) AsVersion(version model.Version) (interface{}, bool) {
